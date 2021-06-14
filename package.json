@@ -1,0 +1,32 @@
+{
+  "name": "deliverybackendFoodLike",
+  "version": "1.0.0",
+  "description": "Backend for DeliveryAppDodomaFoodlike",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start index.js",
+    "dev": "nodemon index.js",
+    "serv": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VunderkindMedia/DeliveryBackend.git"
+  },
+  "author": "VunderkindMedia (Igor Strelov)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VunderkindMedia/DeliveryBackend/issues"
+  },
+  "homepage": "https://github.com/VunderkindMedia/DeliveryBackend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.15",
+    "mongoose-sequence": "^5.3.1",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.1"
+  }
+}
