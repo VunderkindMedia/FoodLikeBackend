@@ -26,7 +26,7 @@ mongoose.connect('mongodb://dodoma-admin:rg8asgas7dJGFi@185.251.91.202:27017/foo
 // });
 mongoose.set('useCreateIndex', true);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Приложение слушает порт: ${PORT}`);
