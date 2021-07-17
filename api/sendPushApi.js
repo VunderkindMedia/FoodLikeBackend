@@ -1,6 +1,10 @@
 const fetch  = require('node-fetch');
 const {config} = require('../helpers/insruments');
 const sendPushApi = async ({title, description, users_list}) => {
+
+  console.log(title);
+  console.log(description);
+  console.log(users_list);
   const form = {
     registration_ids: users_list.map(item => item.token),
     notification: {
