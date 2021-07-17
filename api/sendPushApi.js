@@ -1,7 +1,6 @@
 const fetch  = require('node-fetch');
 const {config} = require('../helpers/insruments');
 const sendPushApi = async ({title, description, users_list}) => {
-  return new Promise((resolve, reject) => {
     const form = {
       registration_ids: users_list.map(item => item.token),
       notification: {
@@ -14,8 +13,7 @@ const sendPushApi = async ({title, description, users_list}) => {
         body: description
       }
     }
-    console.log(JSON.stringify(form));
-    fetch('https://fcm.googleapis.com/fcm/send', {
+    return fetch('https://fcm.googleapis.com/fcm/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,11 +21,10 @@ const sendPushApi = async ({title, description, users_list}) => {
       },
       body: JSON.stringify(form)
     })
-    .then(result => result.json())
-    .then(result => resolve(result))
-    .catch(e=> reject(e))
-  })
-
+    .then(result => {
+      console.log(result.json());
+      return result.json()
+    })
 }
 
 const sendPushOrders = (title, description, order, configKey, sendFunc) => {
