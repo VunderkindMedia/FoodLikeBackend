@@ -21,10 +21,6 @@ const sendPushApi = async ({title, description, users_list}) => {
       },
       body: JSON.stringify(form)
     })
-    .then(result => {
-      console.log(result.json());
-      return result.json()
-    })
 }
 
 const sendPushOrders = (title, description, order, configKey, sendFunc) => {
