@@ -1,14 +1,14 @@
 const fetch  = require('node-fetch');
 const {config} = require('../helpers/insruments');
 const sendPushApi = async ({title, description, users_list}) => {
-    const form = {
-      registration_ids: users_list.map(item => item.token),
-      notification: {
-        body: description,
-        title: title,
-        sound: 'default'
-      }
+  const form = {
+    registration_ids: users_list.map(item => item.token),
+    notification: {
+      body: description,
+      title: title,
+      sound: 'default'
     }
+  }
     return fetch('https://fcm.googleapis.com/fcm/send', {
       method: 'POST',
       headers: {

@@ -16,7 +16,7 @@ const pushSend = async (req, res, next) => {
           push_count: data.users_list.length,
           send_to: data.users_list
         }})
-    })
+    }).catch(e => console.log(e))
   }
 };
 
