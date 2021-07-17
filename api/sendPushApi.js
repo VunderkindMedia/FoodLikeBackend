@@ -2,9 +2,6 @@ const fetch  = require('node-fetch');
 const {config} = require('../helpers/insruments');
 const sendPushApi = async ({title, description, users_list}) => {
 
-  console.log(title);
-  console.log(description);
-  console.log(users_list);
   const form = {
     registration_ids: users_list.map(item => item.token),
     notification: {
@@ -21,7 +18,7 @@ const sendPushApi = async ({title, description, users_list}) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'key=EcNEM1PFSQpqpFOy4kS3QxQ:APA91bEJk4CTfRBede0dd9t6u05tUrD19Soc5b1w6nhC678J9WE-qlQflAd9t-Fgv8FY_Ps_L6qN1oOYHfAetO_4srkn3zv4RtBP2ES7_SrH4j1PFrVRLBVhzZ1jPPdJr8YQ7pXyndMB'
+        'Authorization': 'key=AAAA0AJjAN0:APA91bGVrx2qx6iBn3cc09-dSPLiKaszeUzK3YkS_M4v6y9uy2K_j25G3Y49mkQ6HDPiLHrr9WcRJDBQb_ezIa6J5fUNxp_aj9QTO48HRDkwXmcmlwoTdznf_wA1GybutEoqLNDhY3VT'
       },
       body: JSON.stringify(form)
     })
