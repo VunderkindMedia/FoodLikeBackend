@@ -11,7 +11,7 @@ const sendPushApi = async ({title, description, users_list}) => {
       },
       data: {
         title: title,
-        message: description
+        body: description
       }
     }
     console.log(JSON.stringify(form));
