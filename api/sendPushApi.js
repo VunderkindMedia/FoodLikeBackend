@@ -15,7 +15,7 @@ const sendPushApi = async ({title, description, users_list}) => {
         'Content-Type': 'application/json',
         'Authorization': 'key=EcNEM1PFSQpqpFOy4kS3QxQ:APA91bEJk4CTfRBede0dd9t6u05tUrD19Soc5b1w6nhC678J9WE-qlQflAd9t-Fgv8FY_Ps_L6qN1oOYHfAetO_4srkn3zv4RtBP2ES7_SrH4j1PFrVRLBVhzZ1jPPdJr8YQ7pXyndMB'
       },
-      body: JSON.stringify(form)
+      body: form
     })
     .then(result => {
       console.log(result.json());
