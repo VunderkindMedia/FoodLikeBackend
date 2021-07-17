@@ -7,46 +7,29 @@ const sendPushApi = async ({title, description, users_list}) => {
       notification: {
         body: description,
         title: title,
-        sound: 'default'
-        }
-    }
-    const form2 = {
-      to: users_list.map(item => item.token),
-      title:title,
-      body: description,
+        sound: 'default',
+        },
+      data: {
+        title: title,
+        message: description
+      }
     }
     fetch('https://fcm.googleapis.com/fcm/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'key=AAAARtlGJ7g:APA91bEeoxCh8EqzUmB5sq98T7r3ub-fU25hm8QNFTdz6LoJ5GyeVp4roXOW3LmVvgFKajTT24BIBf_J_I8UkQRYDrsMvsOdm0WHTx0RE_p2w12RkMFBqoHDF2jDlm8Zttljdys8H21T'
+        'Authorization': 'EcNEM1PFSQpqpFOy4kS3QxQ:APA91bEJk4CTfRBede0dd9t6u05tUrD19Soc5b1w6nhC678J9WE-qlQflAd9t-Fgv8FY_Ps_L6qN1oOYHfAetO_4srkn3zv4RtBP2ES7_SrH4j1PFrVRLBVhzZ1jPPdJr8YQ7pXyndMB'
       },
       body: JSON.stringify(form)
-    }).then(result => result.json())
-        .then(result => {
-      fetch('https://exp.host/--/api/v2/push/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form2)
-      }).then((result2) => {
-        result2.json()
-      }).then((result2) => {
-        resolve({
-          FCM: result,
-          EXPO: result2
-        })
-      })
-    }).catch(e=> {
-      reject(e)
     })
+    .then(result => result.json())
+    .then(result => resolve(result))
+    .catch(e=> reject(e))
   })
 
 }
 
 const sendPushOrders = (title, description, order, configKey, sendFunc) => {
-  console.log('ORDER', order);
   config.get().then((result) => {
     if (result[configKey] === '1') {
       order && order.phone && sendFunc(order.phone, title, description)

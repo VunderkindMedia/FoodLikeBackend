@@ -23,9 +23,7 @@ const pushSend = async (req, res, next) => {
 const pushOrderSend = async (phone, title, description) => {
 
   Clients.find({"client_phone": ` ${phone.match(/\d+/)[0]}`}, (err, doc) => {
-    console.log('USER', doc);
     if (doc) {
-      console.log('USERS_DOC', doc);
       sendPushApi({title: title, description: description, users_list: doc}).then((result) => {
         console.log(result);
       })
