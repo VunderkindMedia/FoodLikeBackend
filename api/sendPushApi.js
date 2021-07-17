@@ -9,11 +9,12 @@ const sendPushApi = async ({title, description, users_list}) => {
         title: title,
         sound: 'default',
         },
-      data: {
-        title: title,
-        message: description
-      }
+        data: {
+          title: title,
+          message: description
+        }
     }
+    console.log(JSON.stringify(form));
     fetch('https://fcm.googleapis.com/fcm/send', {
       method: 'POST',
       headers: {
