@@ -1,4 +1,6 @@
 const bodyParser = require('body-parser');
+const admin = require("firebase-admin");
+const keys = require('./api/foodlike-e5a25-firebase-adminsdk-bf6c1-6ab3ec7509.json');
 
 const express = require('express');
 const app = express();
@@ -60,3 +62,7 @@ app.use('/api/orders', ordersRouter);
 app.use('/api/products', productsRouter);
 
 app.use('/api/categories', categoriesRouter);
+
+admin.initializeApp({
+  credential: admin.credential.cert(keys)
+});
